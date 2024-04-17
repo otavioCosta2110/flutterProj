@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const AppProj());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class AppProj extends StatelessWidget {
+  const AppProj({super.key});
 
   @override
     Widget build(BuildContext context) {
@@ -26,10 +26,10 @@ class HomePage extends StatefulWidget {
   final String title;
 
   @override
-    State<HomePage> createState() => _MyHomePageState();
+    State<HomePage> createState() => _HomePageState();
 }
 
-class _MyHomePageState extends State<HomePage> {
+class _HomePageState extends State<HomePage> {
 
   String text = 'nada legal';
 
