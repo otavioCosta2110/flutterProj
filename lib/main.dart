@@ -11,40 +11,40 @@ class MyApp extends StatelessWidget {
     Widget build(BuildContext context) {
       return MaterialApp(
           debugShowCheckedModeBanner: false,
-          title: 'fodase page',
+          title: 'legal page',
           theme: ThemeData(
             brightness: Brightness.dark,
             ),
-          home: const MyHomePage(title: 'foda games'),
+          home: const HomePage(title: 'legal games'),
           );
     }
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
+class HomePage extends StatefulWidget {
+  const HomePage({super.key, required this.title});
 
   final String title;
 
   @override
-    State<MyHomePage> createState() => _MyHomePageState();
+    State<HomePage> createState() => _MyHomePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _MyHomePageState extends State<HomePage> {
 
-  String text = 'nada foda';
+  String text = 'nada legal';
 
   changeText(){
     setState(() {
-      text = 'foda';
-    });
-    }
+        text = 'legal';
+        });
+  }
 
   @override
     Widget build(BuildContext context) {
       return Scaffold(
           appBar: AppBar(
             backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-            title: const Text(text),
+            title: Text(text),
             ),
 
           body: Center(
@@ -54,7 +54,7 @@ class _MyHomePageState extends State<MyHomePage> {
               const Text( 'muito epico esse numero'),
 
               Text(
-                'foda',
+                text,
                 style: Theme.of(context).textTheme.headlineMedium,
                 ),
               ],
@@ -62,7 +62,7 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
 
           floatingActionButton: FloatingActionButton(
-            onPressed: () {},
+            onPressed: changeText, 
             tooltip: 'game',
             child: const Icon(Icons.add),
             ), 
