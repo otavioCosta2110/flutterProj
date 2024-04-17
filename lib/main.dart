@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'screens/catalog.dart';
 
 void main() {
   runApp(const AppProj());
@@ -62,7 +63,12 @@ class _HomePageState extends State<HomePage> {
             ),
 
           floatingActionButton: FloatingActionButton(
-            onPressed: changeText, 
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const CatalogPage()),
+                );
+              },
             tooltip: 'game',
             child: const Icon(Icons.add),
             ), 
