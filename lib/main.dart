@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gustavo/screens/login.dart';
 
 void main() {
   runApp(const AppProj());
@@ -62,10 +63,16 @@ class _HomePageState extends State<HomePage> {
             ),
 
           floatingActionButton: FloatingActionButton(
-            onPressed: changeText, 
-            tooltip: 'game',
-            child: const Icon(Icons.add),
-            ), 
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => LoginPage()),
           );
-    }
+        },
+        tooltip: 'Ir para a tela de login',
+        child: const Icon(Icons.login),
+      ),
+    );
+  }
+
 }
