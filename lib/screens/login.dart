@@ -37,62 +37,62 @@ class LoginPage extends StatelessWidget {
   }
 
   void _goToRegister(BuildContext context) {
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => RegisterPage()),
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: null,
+          shape: null,
+          content: SizedBox(
+            width: MediaQuery.of(context).size.width * 0.28,
+            height: MediaQuery.of(context).size.height * 0.4,
+            child: RegisterPage(),
+          ),
+        );
+      },
     );
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Login'),
-      ),
       body: Center(
         child: Padding(
-          padding: const EdgeInsets.all(20.0),
-          child: Card(
-            elevation: 5,
-            margin: cardMarginVer,
-            child: Padding(
-              padding: cardContentPaddingInt, 
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  SizedBox(
-                    width: 250,
-                    child: TextField(
-                      controller: _usernameController,
-                      decoration: inputDecor.copyWith(
-                        hintText: 'Nome de usuário',
-                      ),
-                    ),
+          padding: cardContentPaddingInt, 
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              SizedBox(
+                width: 250,
+                child: TextField(
+                  controller: _usernameController,
+                  decoration: inputDecor.copyWith(
+                    hintText: 'Nome de usuário',
                   ),
-                  const SizedBox(height: 20),
-                  SizedBox(
-                    width: 250,
-                    child: TextField(
-                      controller: _passwordController,
-                      obscureText: true,
-                      decoration: inputDecor.copyWith(
-                        hintText: 'Senha',
-                      ),
-                    ),
-                  ),
-                  const SizedBox(height: 20),
-                  ElevatedButton(
-                    onPressed: () => _login(context),
-                    child: const Text('Login'),
-                  ),
-                  const SizedBox(height: 10),
-                  TextButton(
-                    onPressed: () => _goToRegister(context),
-                    child: const Text('Não possui uma conta? Registre-se'),
-                  ),
-                ],
+                ),
               ),
-            ),
+              const SizedBox(height: 20),
+              SizedBox(
+                width: 250,
+                child: TextField(
+                  controller: _passwordController,
+                  obscureText: true,
+                  decoration: inputDecor.copyWith(
+                    hintText: 'Senha',
+                  ),
+                ),
+              ),
+              const SizedBox(height: 20),
+              ElevatedButton(
+                onPressed: () => _login(context),
+                child: const Text('Login'),
+              ),
+              const SizedBox(height: 10),
+              TextButton(
+                onPressed: () => _goToRegister(context),
+                child: const Text('Não possui uma conta? Registre-se'),
+              ),
+            ],
           ),
         ),
       ),
@@ -100,8 +100,7 @@ class LoginPage extends StatelessWidget {
   }
 }
 
-// Constantes para os estilos
-const EdgeInsetsGeometry cardMarginVer = EdgeInsets.symmetric(vertical: 10);
+const EdgeInsetsGeometry cardMarginVer = EdgeInsets.symmetric(vertical: 2);
 const EdgeInsetsGeometry cardContentPaddingInt = EdgeInsets.all(20);
 const InputDecoration inputDecor = InputDecoration(
   border: OutlineInputBorder(),
