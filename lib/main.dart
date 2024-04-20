@@ -44,7 +44,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.secondary,
+        //backgroundColor: Theme.of(context).colorScheme.secondary,
         title: Text(text),
         toolbarHeight: 40,
         actions: [
@@ -53,60 +53,68 @@ class _HomePageState extends State<HomePage> {
             padding: const EdgeInsets.only(right: 16.0),
             child: Container(
               margin: const EdgeInsets.symmetric(vertical: 7.0),
-              decoration: BoxDecoration(    
+              decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(5),
               ),
               child: Row(
                 children: [
-                  FloatingActionButton(
-                    onPressed: () {
-                      showDialog(
-                        context: context,
-                        builder: (BuildContext context) {
-                          return AlertDialog(
-                            title: null,
-                            shape: null,
-                            content: SizedBox(
-                              width: MediaQuery.of(context).size.width * 0.28,
-                              height: MediaQuery.of(context).size.height * 0.4,
-                              child: LoginPage(),
-                            ),
-                          );
-                        },
-                      );
-                    },
-                    backgroundColor: Colors.black,
-                    tooltip: 'Login',
-                    child: const Text('Login'),
-                  ),
+                  Material(
+                    color: Colors.transparent,
+                    child: InkWell(
+                      onTap: () {
+                        showDialog(
+                          context: context,
+                          builder: (BuildContext context) {
+                            return AlertDialog(
+                              title: null,
+                              shape: null,
+                              content: SizedBox(
+                                width: MediaQuery.of(context).size.width * 0.28,
+                                height: MediaQuery.of(context).size.height * 0.4,
+                                child: LoginPage(),
+                              ),
+                            );
+                          },
+                        );
+                      },
+                        child: const Text(
+                          'Login',
+                          style: TextStyle(color: Colors.white),
+                        ),
+                      ),
+                    ),
                   const SizedBox(width: 8),
-                  FloatingActionButton(
-                    onPressed: () {
-                      showDialog(
-                        context: context,
-                        builder: (BuildContext context) {
-                          return AlertDialog(
-                            title: null,
-                            shape: null,
-                            content: SizedBox(
-                              width: MediaQuery.of(context).size.width * 0.28,
-                              height: MediaQuery.of(context).size.height * 0.4,
-                              child: RegisterPage(),
-                            ),
-                          );
-                        },
-                      );
-                    },
-                    backgroundColor: Colors.black,
-                    tooltip: 'Registro',
-                    child: const Text('Registro'),
-                  ),
-                ],
+                  Material(
+                    color: Colors.transparent,
+                    child: InkWell(
+                      onTap: () {
+                        showDialog(
+                          context: context,
+                          builder: (BuildContext context) {
+                            return AlertDialog(
+                              title: null,
+                              shape: null,
+                              content: SizedBox(
+                                width: MediaQuery.of(context).size.width * 0.4,
+                                height: MediaQuery.of(context).size.height * 0.7,
+                                child: RegisterPage(),
+                              ),
+                            );
+                          },
+                        );
+                      },
+                        child: const Text(
+                          'Registro',
+                          style: TextStyle(color: Colors.white),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
-          ),
-        ],
-      ),
+          ],
+        ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
