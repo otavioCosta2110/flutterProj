@@ -3,7 +3,7 @@ import 'package:gustavo/models/product.dart';
 
 class ProductPage extends StatelessWidget {
   final Product product;
-  const ProductPage({Key? key, required this.product}) : super(key: key);
+  const ProductPage({super.key, required this.product});
 
   @override
   Widget build(BuildContext context) {
@@ -31,20 +31,20 @@ class ProductPage extends StatelessWidget {
                       ),
                     ),
                   ),
-                  SizedBox(height: 10),
+                  const SizedBox(height: 10),
                   Text(
                     product.name,
-                    style: TextStyle(fontSize: 24),
+                    style: const TextStyle(fontSize: 24),
                   ),
-                  SizedBox(height: 10),
+                  const SizedBox(height: 10),
                   Text(
                     'R\$ ${product.price.toStringAsFixed(2)}',
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  SizedBox(height: 10),
+                  const SizedBox(height: 10),
                   ElevatedButton.icon(
                     onPressed: () {
                       ScaffoldMessenger.of(context).showSnackBar(
@@ -52,8 +52,8 @@ class ProductPage extends StatelessWidget {
                       );
                       Navigator.of(context).pop();
                     },
-                    icon: Icon(Icons.shopping_cart),
-                    label: Text(
+                    icon: const Icon(Icons.shopping_cart),
+                    label: const Text(
                       'Adicionar ao carrinho',
                       style: TextStyle(fontSize: 18),
                     ),
