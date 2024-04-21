@@ -60,7 +60,6 @@ class _HomePageState extends State<HomePage> {
 
     return Scaffold(
 appBar: AppBar(
-        //backgroundColor: Theme.of(context).colorScheme.secondary,
         title: Text(text),
         toolbarHeight: 40,
         actions: [

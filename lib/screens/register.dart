@@ -35,7 +35,38 @@ class RegisterPage extends StatelessWidget {
       );
       return;
     }
+   if (RegExp(r'^[0-9]+$').hasMatch(username)) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text('O nome de usuário deve conter letras!'),
+        ),
+      );
+      return;
+    }
+    if (username.length < 4) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text('O nome de usuário deve conter no mínimo 4 caracteres!'),
+        ),
+      );
+      return;
+    }
+    if (password.length < 8) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text('A senha deve conter no mínimo 8 caracteres!'),
+        ),
+      );
+      return;
+    }
+    Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(
+        builder: (context) => AppProj(),
+      ),
+    );
   }
+
 
   var maskFormatterDate = MaskTextInputFormatter(
     mask: "##/##/####", 
