@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'screens/catalog.dart';
 import 'package:gustavo/screens/login.dart';
 import 'package:gustavo/screens/register.dart';
 import 'package:gustavo/models/product.dart';
@@ -12,27 +11,24 @@ void main() {
 
 class AppProj extends StatelessWidget {
 
-  const AppProj({Key? key});
+  const AppProj({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'legal page',
+      title: 'Catalogo de produtos',
       theme: ThemeData(
         brightness: Brightness.dark,
       ),
-      home: const HomePage(title: 'legal games'),
+      home: const HomePage(),
     );
   }
 }
 
 class HomePage extends StatefulWidget {
 
-  const HomePage({Key? key, required this.title});
-
-
-  final String title;
+  const HomePage({super.key});
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -45,13 +41,6 @@ class _HomePageState extends State<HomePage> {
     Product(id: 3, name: 'Suco de Laranja', price: 12.00, imageUrl: 'assets/suco-laranja.png'),
     Product(id: 4, name: 'Perfume', price: 197.00, imageUrl: 'assets/perfume.png'),
   ];
-  String text = 'nada legal';
-
-  changeText() {
-    setState(() {
-      text = 'legal';
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -59,8 +48,8 @@ class _HomePageState extends State<HomePage> {
     final cardWidth = MediaQuery.of(context).size.width / crossAxisCount - 20;
 
     return Scaffold(
-appBar: AppBar(
-        title: Text(text),
+      appBar: AppBar(
+        title: const Text('Catálogo de produtos'),
         toolbarHeight: 40,
         actions: [
           const SizedBox(width: 16),
@@ -81,8 +70,6 @@ appBar: AppBar(
                           context: context,
                           builder: (BuildContext context) {
                             return AlertDialog(
-                              title: null,
-                              shape: null,
                               content: SizedBox(
                                 width: MediaQuery.of(context).size.width * 0.28,
                                 height: MediaQuery.of(context).size.height * 0.4,
@@ -155,7 +142,7 @@ appBar: AppBar(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      SizedBox(height: 12),
+                      const SizedBox(height: 12),
                       ClipRRect(
                         borderRadius: BorderRadius.circular(20),
                         child: Image.asset(

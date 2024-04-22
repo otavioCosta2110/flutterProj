@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:gustavo/main.dart';
-import 'package:gustavo/screens/login.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 
 class RegisterPage extends StatelessWidget {
-  RegisterPage({Key? key}) : super(key: key);
+  RegisterPage({super.key});
 
   final TextEditingController _usernameController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
@@ -21,7 +20,6 @@ class RegisterPage extends StatelessWidget {
     String dob = _dobController.text.trim();
     String phone = _phoneController.text.trim();
 
-    // Verifique se os campos são vazios
     if (username.isEmpty ||
         password.isEmpty ||
         email.isEmpty ||
@@ -62,7 +60,7 @@ class RegisterPage extends StatelessWidget {
     Navigator.pushReplacement(
       context,
       MaterialPageRoute(
-        builder: (context) => AppProj(),
+        builder: (context) => const AppProj(),
       ),
     );
   }
@@ -167,7 +165,6 @@ class RegisterPage extends StatelessWidget {
   }
 }
 
-//estilos
 const EdgeInsetsGeometry cardContentPaddingInt = EdgeInsets.all(20);
 const InputDecoration inputDecor = InputDecoration(
   border: OutlineInputBorder(),
